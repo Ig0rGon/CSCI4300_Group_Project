@@ -1,7 +1,7 @@
 Team Lead: Igor Rodrigues Goncalves 
 ir40634@uga.edu
 
-Communication Lead: Theodore Willingham
+Communication Lead: Theodore Seiji Willingham
 tsw91905@uga.edu
 
 Miro Captain: Jordan Delp
