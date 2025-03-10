@@ -1,6 +1,6 @@
 Front End
 
-    Landing Page (Where you log in)
+    Landing Page (Where you log in) - index.html
 
     MarketPlace Page (Where you filter and buy items)
 
