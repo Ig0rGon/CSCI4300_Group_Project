@@ -1,11 +1,10 @@
-Generated with Chat GPT
-
 1. Project Overview
 Objective: Build an online marketplace for students at your college to buy, sell, or trade items locally within the campus.
 
 Platform: Web-based (optionally mobile app for later phases)
 
 Target Audience: College students, faculty, and staff
+
 
 2. Features and Functionalities
 A. User Authentication
@@ -31,6 +30,7 @@ Admin Dashboard: For managing users, listings, and transactions.
 Report Items: Option for users to report suspicious listings or inappropriate behavior.
 Content Moderation: Admins can approve/disapprove items before they go live.
 
+
 3. Technical Stack
 Frontend:
 React, Vue.js, or Angular (for dynamic web interfaces)
@@ -48,6 +48,7 @@ Hosting:
 Netlify, Vercel, or AWS for deployment
 Mobile App (optional):
 React Native or Flutter for mobile development in future phases
+
 
 4. Development Phases
 Phase 1: Initial Setup
@@ -76,6 +77,7 @@ Mobile app version
 Social media sharing for listings
 Advanced filtering options (e.g., condition, brand)
 Campus event integration (e.g., swapping tickets for events)
+
 
 5. Project Management & Timeline
 Week 1-2: Planning, tech stack selection, wireframes, user stories.

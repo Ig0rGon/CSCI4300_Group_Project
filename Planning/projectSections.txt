@@ -1,6 +1,11 @@
 Front End
 
+    Login Page (Where users can access their accounts)
+
     Landing Page (Where you log in) - index.html
 
     MarketPlace Page (Where you filter and buy items)
 
+    Profile Page (Where you can add personal information)
+
+    Messaging System (Where people can agree to buy things)
