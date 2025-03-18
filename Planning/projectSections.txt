@@ -9,3 +9,11 @@ Front End
     Profile Page (Where you can add personal information)
 
     Messaging System (Where people can agree to buy things)
+
+
+Pages
+
+- Welcome Page
+- Items Page
+- View Item Page
+- 

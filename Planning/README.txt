@@ -1,4 +1,4 @@
-Team Lead: Igor Rodrigues Goncalves 
+Team Lead: Igor Rodrigues Gonçalves 
 ir40634@uga.edu
 
 Communication Lead: Theodore Seiji Willingham
