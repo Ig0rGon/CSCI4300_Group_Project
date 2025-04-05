@@ -1,5 +1,6 @@
 "use client"
 import connectMongoDB from "../../config/mongodb";
+import Card from "./components/Card";
 import LocationFinder from "./components/LocationFinder";
 
 export default function Home() {
