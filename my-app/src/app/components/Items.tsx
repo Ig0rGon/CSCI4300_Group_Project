@@ -28,22 +28,21 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
     <div className={styles.itemsContainer}>
       {items.map((item) => (
         //This Div holds the image and the item details 
-        <div onClick={() => handleClick(item.id, item.name)}> 
-          <div key={item.id} className={styles.itemCard}>
-            <Image
-              src={item.imageUrl}
-              alt={item.name}
-              width={150}
-              height={150}
-              className={styles.itemImage}
-            />
-            <div className={styles.itemDetails}>
-              <h1>${item.price.toFixed(2)}</h1>
-              <p>{item.name}</p>
-              <p>{item.location}</p>
-            </div>
+        <div onClick={() => handleClick(item.id, item.name)} key={item.id} className={styles.itemCard}>
+          <Image
+            src={item.imageUrl}
+            alt={item.name}
+            width={150}
+            height={150}
+            className={styles.itemImage}
+          />
+          <div className={styles.itemDetails}>
+            <h1>${item.price.toFixed(2)}</h1>
+            <p>{item.name}</p>
+            <p>{item.location}</p>
           </div>
         </div>
+      
       ))}
     </div>
   );
