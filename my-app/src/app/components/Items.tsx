@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image'; // Use this only if you're in a Next.js project
 import styles from '../styles/Items.module.css';
 
