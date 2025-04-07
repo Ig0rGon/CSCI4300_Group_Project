@@ -5,7 +5,7 @@ import styles from '../styles/Items.module.css';
 
 //Interface for each item
 interface Item {
-  id: number;
+  id: string;
   name: string;
   price: number;
   location: string;
@@ -18,7 +18,7 @@ interface ItemsProps {
 }
 
 //arrow function to handle whne Items is clicked
-const handleClick = (id: number, name: string) => {
+const handleClick = (id: string, name: string) => {
     alert(`Item ID: ${id} and Name: ${name}` + " clicked");
 }
 
