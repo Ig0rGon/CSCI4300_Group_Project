@@ -9,6 +9,8 @@ interface Item {
   name: string;
   price: number;
   location: string;
+  lat: number;
+  lon: number;
   imageUrl: string;
 }
 
@@ -23,6 +25,8 @@ const handleClick = (id: string, name: string) => {
 }
 
 //takes all the items and prints out in a neat card
+// Currently only shows image, price, name, and location
+// Finer details will be shown when item is clicked
 const Items: React.FC<ItemsProps> = ({ items }) => {
   return (
     <div className={styles.itemsContainer}>

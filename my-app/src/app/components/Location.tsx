@@ -51,8 +51,8 @@ export default function Location() {
   const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
 
   // Later implement this code to get lat and lon from current user
-  const targetCoords = { lat: 40.758, lon: -73.9855 }; // Times Square, for example
-
+  const targetCoords = { lat: 33.9475, lon: -83.3578 }; // lat and lon of Athens GA
+ 
   const distance =
     coords?.lat && coords?.lon
       ? getDistance(coords.lat, coords.lon, targetCoords.lat, targetCoords.lon).toFixed(2)

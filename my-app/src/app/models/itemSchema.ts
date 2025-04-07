@@ -4,6 +4,8 @@ interface IItem extends Document {
     name: string;
     price: number;
     location: string;
+    lat: number;
+    lon: number;
     imageUrl: string;
   }
 
@@ -18,6 +20,14 @@ interface IItem extends Document {
     },
     location: {
         type: String,
+        required: true,
+    },
+    lat: {
+        type: Number,
+        required: true,
+    },
+    lon: {
+        type: Number,
         required: true,
     },
     imageUrl: {
