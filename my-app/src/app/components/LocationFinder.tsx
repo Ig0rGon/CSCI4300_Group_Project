@@ -26,6 +26,81 @@ const getDistance = (
   return R * c;
 };
 
+// Component to fetch user's current location
+function LocationFetcher({
+  onLocationFetched,
+}: {
+  onLocationFetched: (lat: number, lon: number) => void;
+}) {
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          onLocationFetched(latitude, longitude);
+        },
+        (error) => console.error("Error getting location:", error)
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }, [onLocationFetched]);
+
+  return <p className="text-gray-400">Fetching location...</p>;
+}
+
+// Component to fetch city and image
+function CityImageFetcher({ latitude, longitude }: { latitude: number; longitude: number }) {
+  const [city, setCity] = useState<string>("");
+  const [imageUrl, setImageUrl] = useState<string>("");
+
+  useEffect(() => {
+    const fetchCity = async () => {
+      try {
+        const res = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+        );
+        const data = await res.json();
+        const cityName =
+          data.address.city || data.address.town || data.address.village || "Unknown City";
+        setCity(cityName);
+        fetchCityImage(cityName);
+      } catch (error) {
+        console.error("Error fetching city:", error);
+      }
+    };
+
+    const fetchCityImage = async (cityName: string) => {
+      try {
+        const res = await fetch(
+          `https://api.unsplash.com/search/photos?client_id=GYIGqKl0eg1FmtuJNq0roBiL4s669ydBLcv_SPw2roQ&query=${cityName}`
+        );
+        const data = await res.json();
+        setImageUrl(data.results[0]?.urls.regular || "");
+      } catch (error) {
+        console.error("Error fetching image:", error);
+      }
+    };
+
+    if (latitude && longitude) {
+      fetchCity();
+    }
+  }, [latitude, longitude]);
+
+  return (
+    <div className="mt-6">
+      {city && <h2 className="text-xl font-semibold">Nearest City: {city}</h2>}
+      {imageUrl && (
+        <img
+          src={imageUrl}
+          alt={`View of ${city}`}
+          className="rounded-xl mt-4 max-w-full"
+        />
+      )}
+    </div>
+  );
+}
+
 
 const LocationFinder = () => {
 

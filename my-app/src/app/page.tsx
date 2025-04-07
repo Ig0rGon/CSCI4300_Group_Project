@@ -1,11 +1,16 @@
 "use client"
 import connectMongoDB from "../../config/mongodb";
+import { NextResponse } from "next/server";
+
+//Components
 import LocationFinder from "./components/LocationFinder";
 import Items from './components/Items';
 import Card from "./components/Card";
+import Location from "./components/Location"
+
+//Models
 import Item from "./models/itemSchema";
-import { NextResponse } from "next/server";
-import { connect } from "http2";
+
 
 
 /** Get rid of sampleItems later
@@ -39,7 +44,7 @@ export default function Home() {
         // Splash Page
         <h1>Welcome!</h1>
         <Items items={sampleItems} />
-        {/* <LocationFinder/> */}
+        <Location></Location>
     </div>
   );
 };
