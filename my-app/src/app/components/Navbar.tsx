@@ -21,7 +21,7 @@ const Navbar = () => {
     <nav className="Navbar">
       <div className="logo-container">
         <button onClick={handleLogoClick} className="logo-button">
-          <Image src="/assets/logo.png" alt="Bulldog Market Logo" className="logo" width={50} height={50} />
+          <Image src="/public/assets/logo.png" alt="Bulldog Market Logo" className="logo" width={50} height={50} />
         </button>
       </div>
       <div className="navbar-buttons">
