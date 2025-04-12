@@ -1,10 +1,13 @@
 import React from "react";
-import Layout from "./layout";
+import Navbar from "../app/components/Navbar";
+import Sidebar from "../app/components/Sidebar";
 
 const HomePage = () => {
   return (
     <section>
-      <Layout/>
+       <Navbar />
+       <Sidebar />
+       test
     </section>
   )
 
