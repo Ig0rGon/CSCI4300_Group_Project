@@ -53,7 +53,7 @@ const PostItemPage = () => {
     <div className="post-item-page">
       <h1 className="post-item-title">Post Item</h1>
       <div className="post-item-form-container">
-        <img src="/logo.png" alt="Bulldog Market Logo" className="post-item-logo" />
+        <img src="/assets/logo.png" alt="Bulldog Market Logo" className="post-item-logo" />
         <form onSubmit={handleSubmit} className="post-item-form">
           
           <input
