@@ -37,7 +37,7 @@ import Item from "./models/itemSchema";
 
 // Interface for Item
 interface ItemType {
-  id: string;
+  _id: string;
   name: string;
   price: number;
   location: string;
@@ -48,6 +48,7 @@ interface ItemType {
 
 export default function Home() {
   // This fetches the data of the items from mongoDB
+  // loading stays true until we either encounter and error or actually fetch the data
   const [items, setItems] = useState<ItemType[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -70,8 +71,8 @@ export default function Home() {
 
     fetchItems();
   }, []);
+  // End of fetching data from mongoDB
 
-  connectMongoDB();
 
   return (
     <div>

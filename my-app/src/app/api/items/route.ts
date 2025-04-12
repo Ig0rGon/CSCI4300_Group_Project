@@ -8,12 +8,12 @@ import { NextRequest } from "next/server";
 export async function GET(request: NextRequest) {
     await connectMongoDB();
     const items = await Item.find();
-    return NextResponse.json({ items })
+    return NextResponse.json({ items }, {status: 200}) //IDK what the status code should be
 }
 
 export async function POST(request: NextRequest) {
-    const { id, name, price, location, imageUrl } = await request.json();
+    const { id, name, price, location, lat, lon, imageUrl } = await request.json(); 
     await connectMongoDB();
-    await Item.create({ id, name, price, location, imageUrl });
+    await Item.create({ id, name, price, location, lat, lon, imageUrl }); 
     return NextResponse.json({ message: "item added succesfully" }, { status: 201 });
 }

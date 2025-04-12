@@ -5,7 +5,7 @@ import styles from '../styles/Items.module.css';
 
 //Interface for each item
 interface Item {
-  id: string;
+  _id: string;
   name: string;
   price: number;
   location: string;
@@ -32,7 +32,7 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
     <div className={styles.itemsContainer}>
       {items.map((item) => (
         //This Div holds the image and the item details 
-        <div onClick={() => handleClick(item.id, item.name)} key={item.id} className={styles.itemCard}>
+        <div onClick={() => handleClick(item._id, item.name)} key={item._id} className={styles.itemCard}>
           <Image
             src={item.imageUrl}
             alt={item.name}

@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document, Model } from "mongoose";
 
 interface IItem extends Document {
-    name: string;
+    name: string; 
     price: number;
     location: string;
     lat: number;
@@ -10,7 +10,7 @@ interface IItem extends Document {
   }
 
   const itemSchema = new Schema<IItem>({
-    name: {
+    name: {  
         type: String,
         required: true,
     },
