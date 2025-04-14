@@ -6,6 +6,8 @@ import Sidebar from "../app/components/Sidebar";
 import Items from "./components/Items";
 import './styles/Items.css'
 
+
+// Sample Items we will get rid of this soon once I start pulling from data base
 const sampleItems = [
   {
     _id: "1",
@@ -29,14 +31,15 @@ const sampleItems = [
   },
 ];
 
+//Structured to add items in the correct area
 const HomePage = () => {
   return (
     <div className="flex h-screen">
       <Sidebar />
       <div className="flex flex-col flex-1">
         <Navbar />
-        <div className="items-container">{
-          <Items items={sampleItems}/>}
+        <div className="items-container">
+          <Items items={sampleItems}/>
         </div>
       </div>
     </div>
