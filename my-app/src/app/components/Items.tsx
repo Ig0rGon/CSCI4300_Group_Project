@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image'; // Use this only if you're in a Next.js project
+import Image from 'next/image';
 import styles from '../styles/Items.module.css';
 
 
@@ -41,7 +41,7 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
             className={styles.itemImage}
           />
           <div className={styles.itemDetails}>
-            <h1>${item.price.toFixed(2)}</h1>
+            { /* <h1>${item.price.toFixed(2)}</h1> */ }
             <p>{item.name}</p>
             <p>{item.location}</p>
           </div>
