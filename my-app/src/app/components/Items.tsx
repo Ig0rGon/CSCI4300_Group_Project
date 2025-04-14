@@ -39,6 +39,7 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
             width={150}
             height={150}
             className={styles.itemImage}
+            unoptimized //Since it's a gif Image can't optimize
           />
           <div className={styles.itemDetails}>
             <h1>${item.price.toFixed(2)}</h1>
