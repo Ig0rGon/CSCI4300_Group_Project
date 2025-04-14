@@ -1,49 +1,55 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../app/components/Navbar";
 import Sidebar from "../app/components/Sidebar";
 import Items from "./components/Items";
-import './styles/Items.css'
+import './styles/Items.css';
 
+// Interface for Item
+interface ItemType {
+  _id: string;
+  name: string;
+  price: number;
+  location: string;
+  lat: number;
+  lon: number;
+  imageUrl: string;
+}
 
-// Sample Items we will get rid of this soon once I start pulling from data base
-const sampleItems = [
-  {
-    _id: "1",
-    name: "BuzzLightYear",
-    price: 49.99,
-    location: "Atlanta, GA",
-    lat: 33.93904,
-    lon: -83.37061,
-    imageUrl:
-      "https://media.gettyimages.com/id/458540731/photo/waving-buzz-lightyear-toy.jpg?s=612x612&w=gi&k=20&c=TJ7KgEXd1_kNT9uwA3cCHvh9vZfoD-c7HpHrORvvn-I=",
-  },
-  {
-    _id: "2",
-    name: "BuzzLightYear 2.0",
-    price: 89.99,
-    location: "Athens, GA",
-    lat: 33.93904,
-    lon: -83.37061,
-    imageUrl:
-      "https://media.gettyimages.com/id/458540731/photo/waving-buzz-lightyear-toy.jpg?s=612x612&w=gi&k=20&c=TJ7KgEXd1_kNT9uwA3cCHvh9vZfoD-c7HpHrORvvn-I=",
-  },
-];
+export default function HomePage() {
+  const [items, setItems] = useState<ItemType[]>([]);
+  const [loading, setLoading] = useState(true);
 
-//Structured to add items in the correct area
-const HomePage = () => {
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch("/api/items");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        setItems(data.items);
+      } catch (error) {
+        console.error("Error fetching items:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchItems();
+  }, []);
+
   return (
     <div className="flex h-screen">
       <Sidebar />
       <div className="flex flex-col flex-1">
         <Navbar />
         <div className="items-container">
-          <Items items={sampleItems}/>
+          <Items items={items} />
         </div>
       </div>
     </div>
   );
-};
-
-export default HomePage;
+}
