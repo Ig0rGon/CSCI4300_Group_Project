@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../app/components/Navbar";
 import Sidebar from "../app/components/Sidebar";
 import Items from "./components/Items";
-import './styles/Items.css';
+import Image from "next/image";
+import "./styles/Items.css";
 
 // Interface for Item
 interface ItemType {
@@ -47,7 +48,19 @@ export default function HomePage() {
       <div className="flex flex-col flex-1">
         <Navbar />
         <div className="items-container">
-          <Items items={items} />
+          {loading ? (
+            <p>
+              Loading items...
+              <Image
+                src="/assets/loading.gif"
+                alt="Loading spinner"
+                width={40}
+                height={40}
+              />
+            </p>
+          ) : (
+            <Items items={items} />
+          )}
         </div>
       </div>
     </div>
