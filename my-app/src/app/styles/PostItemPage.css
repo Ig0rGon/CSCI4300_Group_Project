@@ -1,0 +1,96 @@
+.post-item-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 228, 225); /* Light pink background */
+  min-height: 100vh; /* Full viewport height */
+  padding: 2rem;
+}
+
+.post-item-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2rem;
+  margin-top: 2rem; 
+}
+
+.post-item-form-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.post-item-logo {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.post-item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post-item-form input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.post-item-form input[type="file"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row input {
+  flex: 1;
+  width: 80%
+}
+
+.post-item-button {
+  background-color: #e63946; /* Red button */
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.post-item-button:hover {
+  background-color: #d62839; /* Darker red on hover */
+}
+
+.add-image-button {
+  background-color: #f8a5c2; /* Light pink background */
+  color: white; /* White text */
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 0.5rem; /* Add spacing below the button */
+}
+
+.add-image-button:hover {
+  background-color: #f78fb3; /* Darker pink on hover */
+}
