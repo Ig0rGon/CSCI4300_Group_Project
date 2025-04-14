@@ -10,7 +10,7 @@ const Navbar = () => {
   const router = useRouter();
 
   const handleLogoClick = () => {
-    router.push("/"); // Navigate to the home page
+    router.push("/main"); // Navigate to the home page
   };
 
   const handlePostItemClick = () => {
