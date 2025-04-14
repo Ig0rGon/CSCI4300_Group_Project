@@ -41,7 +41,7 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
             className={styles.itemImage}
           />
           <div className={styles.itemDetails}>
-            { /* <h1>${item.price.toFixed(2)}</h1> */ }
+            <h1>${item.price.toFixed(2)}</h1>
             <p>{item.name}</p>
             <p>{item.location}</p>
           </div>

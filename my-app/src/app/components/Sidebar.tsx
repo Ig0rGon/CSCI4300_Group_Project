@@ -22,7 +22,7 @@ const Sidebar = () => {
 
       <div className="sidebar-location">
         <p className="sidebar-location-title">Location</p>
-        <a className="sidebar-location-value"><p>Athens, Georgia</p></a>
+        <a><p className="sidebar-location-value">Athens, Georgia</p></a>
       </div>
 
       
