@@ -6,9 +6,9 @@ import { Home, Ticket, Book, ShoppingBag, Shirt, Monitor, PawPrint, CircleEllips
 const Sidebar = () => {
   const categories = [
     { name: "Tickets", icon: <Ticket /> },
-    { name: "Household items", icon: <Home /> },
-    { name: "School supplies", icon: <Book /> },
-    { name: "Sporting goods", icon: <ShoppingBag /> },
+    { name: "Household Items", icon: <Home /> },
+    { name: "School Supplies", icon: <Book /> },
+    { name: "Sporting Goods", icon: <ShoppingBag /> },
     { name: "Clothing", icon: <Shirt /> },
     { name: "Electronics", icon: <Monitor /> },
     { name: "Pet Supplies", icon: <PawPrint /> },
