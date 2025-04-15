@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image'; // Use this only if you're in a Next.js project
+"use client"
+
+import React from 'react';
+import Image from 'next/image';
 import styles from '../styles/Items.module.css';
+import "../styles/Items.css"
+import { useEffect, useState } from 'react';
 
 
 //Interface for each item
@@ -28,6 +32,16 @@ const handleClick = (id: string, name: string) => {
 // Currently only shows image, price, name, and location
 // Finer details will be shown when item is clicked
 const Items: React.FC<ItemsProps> = ({ items }) => {
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // or <p>Loading...</p>
+
+
   return (
     <div className={styles.itemsContainer}>
       {items.map((item) => (

@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+}
+
+.Navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and buttons */
+    padding: 1rem;
+    background-color: rgb(245, 192, 190); /* Set background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align the logo to the right */
+    width: 5rem; /* Set a fixed width for the container */
+    height: 5rem; /* Set a fixed height for the container */
+    overflow: hidden; /* Ensure the logo doesn't overflow */
+}
+
+.logo {
+    width: 100%; /* Make the logo fill the container */
+    height: 100%; /* Ensure the logo remains a square */
+    object-fit: cover; /* Ensure the logo covers the container while maintaining aspect ratio */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.logo-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.logo-button:focus {
+    outline: none;
+}
+
+.navbar-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between buttons */
+}
+
+.post-item-button {
+    background-color: #e63946; /* Red background for Post Item button */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.post-item-button:hover {
+    background-color: #d62839; /* Darker red on hover */
+}
+
+.sign-out-button {
+    background-color: #6c757d; /* Gray background for Sign Out button */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sign-out-button:hover {
+    background-color: #5a6268; /* Darker gray on hover */
+}
+
+.account-button {
+    background-color: #ccc; /* Gray background */
+    border: none;
+    border-radius: 50%; /* Circular button */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.account-button:hover {
+    background-color: #bbb; /* Darker gray on hover */
+}
+
+.account-icon {
+    color: #333; /* Icon color */
+    font-size: 1.5rem; /* Adjust icon size */
+}

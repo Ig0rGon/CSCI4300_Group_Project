@@ -1,0 +1,40 @@
+/* Import Tailwind CSS for utility-first styling */
+@import "tailwindcss";
+
+/* Define global CSS variables for colors and fonts */
+:root {
+  --background: rgb(230, 230, 230); /* Light gray background for the app */
+  --foreground: #171717; /* Default text color */
+  --font-sans: Arial, Helvetica, sans-serif; /* Default sans-serif font */
+  --font-mono: "Courier New", monospace; /* Default monospace font */
+}
+
+/* Apply dark mode styles when the user prefers a dark color scheme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: rgb(230, 230, 230); /* Dark background for dark mode */
+    --foreground: #312b2b; /* Light text color for dark mode */
+  }
+}
+
+/* Global styles for the body element */
+body {
+  background: var(--background); /* Set the background color */
+  color: var(--foreground); /* Set the text color */
+  font-family: var(--font-sans); /* Set the default font family */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Ensure consistent box model */
+}
+
+/* Utility class for full-height sections */
+.full-height {
+  min-height: 100vh; /* Ensure sections take up the full viewport height */
+}
+
+/* Utility class for flex-centered content */
+.flex-center {
+  display: flex; /* Enable flexbox */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}

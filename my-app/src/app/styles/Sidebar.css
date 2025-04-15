@@ -1,0 +1,115 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-color: rgb(245, 192, 190); /* bg-pink-200 */
+  width: 16rem; /* w-64 */
+  padding: 1rem; /* p-4 */
+  min-height: 100vh; /* min-h-screen */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* space-y-6 */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.sidebar-title {
+  font-size: 1.25rem; /* text-xl */
+  font-weight: bold; /* font-bold */
+  margin-top: 120px;
+}
+
+.sidebar-search {
+  width: 100%; /* w-full */
+  padding: 0.5rem; /* p-2 */
+  border-radius: 0.400rem; /* rounded-md */
+  border: gray, 1px, solid; /* border-gray-300 */
+  background-color: rgb(230, 230, 230); /* bg-gray-200 */
+}
+
+.sidebar-location {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.25rem; /* space-y-1 */
+}
+
+.sidebar-location-title {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 600; /* font-semibold */
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-location-value {
+  color: rgb(239, 68, 68); /* text-red-600 */
+  font-size: 1rem; /* text-sm */
+  padding: 0;
+  margin: 0; /* mt-1 */
+  width: 100%;
+}
+
+.sidebar-location-value:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.sidebar-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* space-y-2 */
+}
+
+.sidebar-categories-title {
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.sidebar-categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* space-y-2 */
+  margin-top: 5%;
+}
+
+.sidebar-category-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* space-x-2 */
+  margin-bottom: 2%;
+}
+
+.sidebar-category-button {
+  background-color: #ccc; /* Gray background */
+  border: none;
+  border-radius: 50%; /* Makes the button round */
+  padding: 6px; /* Adjust padding for size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.sidebar-category-button:hover {
+  background-color: #bbb; /* Slightly darker gray on hover */
+  cursor: pointer;
+}
+
+.sidebar-category-button:active {
+  background-color: #848484; /* Even darker gray on active */
+}
+
+.sidebar-category-icon {
+  font-size: 20px; /* Adjust icon size */
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-category-name {
+  font-size: 1rem; /* Adjust text size if needed */
+}
+
+.bar {
+  height: 1px;
+}
