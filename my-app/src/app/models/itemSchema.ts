@@ -7,7 +7,7 @@ interface IItem extends Document {
     lat: number;
     lon: number;
     imageUrl: string;
-    category: "Tickets" | "Household Items" | "School Supplies" | "Sporting Goods" | "Clothing" | "Electronics" | "Pet Supplies";
+    category: "Tickets" | "Household Items" | "School Supplies" | "Sporting Goods" | "Clothing" | "Electronics" | "Pet Supplies" | "Other";
   }
 
   const itemSchema = new Schema<IItem>({
@@ -38,7 +38,7 @@ interface IItem extends Document {
     category: {
         type: String,
         required: true,
-        enum: ["Tickets", "Household Items", "School Supplies", "Sporting Goods", "Clothing", "Electronics", "Pet Supplies"],
+        enum: ["Tickets", "Household Items", "School Supplies", "Sporting Goods", "Clothing", "Electronics", "Pet Supplies", "Other"],
     },
   });
 

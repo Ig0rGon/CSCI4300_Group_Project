@@ -1,7 +1,7 @@
 // COMPONENT: Sidebar.tsx
 import React from "react";
 import "../styles/Sidebar.css";
-import { Home, Ticket, Book, ShoppingBag, Shirt, Monitor, PawPrint } from "lucide-react";
+import { Home, Ticket, Book, ShoppingBag, Shirt, Monitor, PawPrint, CircleEllipsis } from "lucide-react";
 
 const Sidebar = () => {
   const categories = [
@@ -12,6 +12,7 @@ const Sidebar = () => {
     { name: "Clothing", icon: <Shirt /> },
     { name: "Electronics", icon: <Monitor /> },
     { name: "Pet Supplies", icon: <PawPrint /> },
+    { name: "Other", icon: <CircleEllipsis /> }, // <-- New category
   ];
 
   return (
@@ -19,11 +20,11 @@ const Sidebar = () => {
       <div className="sidebar-title">Marketplace</div>
       <input type="text" placeholder="Search items" className="sidebar-search" />
 
-
+{/* 
       <div className="sidebar-location">
         <p className="sidebar-location-title">Location</p>
         <a><p className="sidebar-location-value">Athens, Georgia</p></a>
-      </div>
+      </div> */}
 
       
       <div className="sidebar-categories">

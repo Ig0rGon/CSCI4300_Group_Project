@@ -10,12 +10,12 @@ const PostItemPage = () => {
   const [formData, setFormData] = useState({
     // image: null as File | null, // Store the uploaded file
     name: "",
-    // category: "", //ADD BACK
     price: "",
     location: "",
     lat: 0.00, //arbitrary lat and lon later get from user location or smth
     lon: 0.00,
-    imageUrl: ""
+    imageUrl: "",
+    category: "" //ADD BACK
   });
 
   // Handle input changes for text fields
@@ -60,7 +60,8 @@ const PostItemPage = () => {
       location: "",
       lat: 0.0,
       lon: 0.0,
-      imageUrl: ""
+      imageUrl: "",
+      category: ""
     });
 
 
@@ -98,7 +99,7 @@ const PostItemPage = () => {
               step="0.01"
               inputMode="decimal"
             />
-            {/* <select
+            <select
               name="category"
               value={formData.category}
               onChange={handleChange}
@@ -115,7 +116,7 @@ const PostItemPage = () => {
               <option value="Electronics">Electronics</option>
               <option value="Pet Supplies">Pet Supplies</option>
               <option value="Other">Other</option>
-            </select> */}
+            </select>
           </div>
           
           <input
