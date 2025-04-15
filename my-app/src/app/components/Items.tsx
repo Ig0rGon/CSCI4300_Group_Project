@@ -16,6 +16,7 @@ interface Item {
   lat: number;
   lon: number;
   imageUrl: string;
+  category: string;
 }
 
 //Interface for all items
@@ -24,8 +25,8 @@ interface ItemsProps {
 }
 
 //arrow function to handle whne Items is clicked
-const handleClick = (id: string, name: string) => {
-    alert(`Item ID: ${id} and Name: ${name}` + " clicked");
+const handleClick = (id: string, name: string, category: string) => {
+    alert(`Item ID: ${id}, Name: ${name}, Category: ${category}` + " clicked");
 }
 
 //takes all the items and prints out in a neat card
@@ -46,7 +47,7 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
     <div className={styles.itemsContainer}>
       {items.map((item) => (
         //This Div holds the image and the item details 
-        <div onClick={() => handleClick(item._id, item.name)} key={item._id} className={styles.itemCard}>
+        <div onClick={() => handleClick(item._id, item.name, item.category)} key={item._id} className={styles.itemCard}>
           <Image
             src={item.imageUrl}
             alt={item.name}

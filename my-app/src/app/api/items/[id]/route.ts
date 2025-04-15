@@ -21,9 +21,9 @@ export async function GET(request: NextRequest, { params }:RouteParams) {
 // Update's unique item
 export async function PUT(request: NextRequest, { params }:RouteParams) {
     const { id } = await params; //Get the items ID
-    const { name: name, price: price, location: location, lat: lat, lon: lon, imageUrl: imageUrl } = await request.json(); 
+    const { name: name, price: price, location: location, lat: lat, lon: lon, imageUrl: imageUrl, category: category } = await request.json(); 
     await connectMongoDB()
-    await Item.findByIdAndUpdate(id,  { name, price, location, lat, lon, imageUrl }); 
+    await Item.findByIdAndUpdate(id,  { name, price, location, lat, lon, imageUrl, category }); 
     return NextResponse.json({ message: "Item Updated" }, { status: 200 });
 }
 
