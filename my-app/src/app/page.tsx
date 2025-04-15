@@ -1,15 +1,16 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import Image from "next/image"
 import "./styles/Home.css";
 
 export default function Home() {
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleEnterSite = () => {
-    router.push("/main"); // Navigate to the original page.tsx (now at /main)
+    // router.push("/main"); // Navigate to the original page.tsx (now at /main)
+    window.location.href = "/main"; //This hard resets the page and fixes styling errors
   };
 
   return (

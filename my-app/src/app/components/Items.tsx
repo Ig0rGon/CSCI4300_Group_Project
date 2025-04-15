@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../styles/Items.module.css';
+import "../styles/Items.css"
 import { useEffect, useState } from 'react';
 
 

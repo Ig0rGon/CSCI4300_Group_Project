@@ -65,7 +65,7 @@ const PostItemPage = () => {
 
 
     //Goes back to root ADD this later so it goes back to home page
-    // router.push("/"); 
+    router.push("/main"); 
   };
 
   return (

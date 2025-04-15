@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Items from "../components/Items";
 import Image from "next/image";
-// import "../styles/Home.css";
 import "../styles/Items.css";
 
 // Interface for Item
