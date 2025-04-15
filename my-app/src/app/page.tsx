@@ -15,6 +15,9 @@ export default function Home() {
 
   return (
     <div className="home-container">
+      <button className="enter-button">
+        Sign In
+      </button>
       <Image src="/assets/logo.png" alt="Bulldog Market Logo" className="logo" width={200} height={200} />
       <h1>Welcome to Bulldog Market</h1>
       <p>
