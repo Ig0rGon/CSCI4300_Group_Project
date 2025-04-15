@@ -18,7 +18,7 @@ export default function Home() {
       <h1>Welcome to Bulldog Market</h1>
       <p>
         Your one-stop shop for all your needs! We aim to be the ultimate online marketplace
-        for all UGA students and the Athens community. Wheather you're looking to buy, sell, or explore,
+        for all UGA students and the Athens community. Whether you're looking to buy, sell, or explore,
         out platform offers a seamless and secure experience for all your needs. 
         Join us today and start shopping!
       </p>

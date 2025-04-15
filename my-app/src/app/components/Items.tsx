@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
+"use client"
+
+import React from 'react';
 import Image from 'next/image';
 import styles from '../styles/Items.module.css';
+import { useEffect, useState } from 'react';
 
 
 //Interface for each item
@@ -28,6 +31,16 @@ const handleClick = (id: string, name: string) => {
 // Currently only shows image, price, name, and location
 // Finer details will be shown when item is clicked
 const Items: React.FC<ItemsProps> = ({ items }) => {
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // or <p>Loading...</p>
+
+
   return (
     <div className={styles.itemsContainer}>
       {items.map((item) => (
@@ -39,7 +52,6 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
             width={150}
             height={150}
             className={styles.itemImage}
-            unoptimized //Since it's a gif Image can't optimize
           />
           <div className={styles.itemDetails}>
             <h1>${item.price.toFixed(2)}</h1>
