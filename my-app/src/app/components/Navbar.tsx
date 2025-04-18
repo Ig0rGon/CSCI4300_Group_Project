@@ -6,13 +6,14 @@ import Image from "next/image";
 import "../styles/Navbar.css";
 import { User } from "lucide-react";
 
-const Navbar = () => {
+interface navBar {
+  onLogoClick: () => void;
+}
+
+const Navbar: React.FC<navBar> = ({onLogoClick}) => {
   const router = useRouter();
   const [isLoggedin, setIsLoggedin] = useState(false); // use state!
 
-  const handleLogoClick = () => {
-    router.push("/main"); // Navigate to the home page
-  };
 
   const handlePostItemClick = () => {
     router.push("/post-item"); // Navigate to the Post Item page
@@ -25,7 +26,7 @@ const Navbar = () => {
   return (
     <nav className="Navbar">
       <div className="logo-container">
-        <button onClick={handleLogoClick} className="logo-button">
+        <button onClick={onLogoClick} className="logo-button">
           <Image
             src="/assets/logo.png"
             alt="Bulldog Market Logo"

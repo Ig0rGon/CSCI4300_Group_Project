@@ -16,11 +16,13 @@ interface ItemType {
   lat: number;
   lon: number;
   imageUrl: string;
+  category: string;
 }
 
 export default function HomePage() {
   const [items, setItems] = useState<ItemType[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -42,25 +44,38 @@ export default function HomePage() {
     fetchItems();
   }, []);
 
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category);
+  };
+
+  const logoclicked = () => {
+    setSelectedCategory("All");
+  }
+
+  const filteredItems =
+    selectedCategory === "All"
+      ? items
+      : items.filter((item) => item.category === selectedCategory);
+
   return (
     <div className="flex h-screen">
-      <Sidebar />
+      <Sidebar onCategoryClick={handleCategoryClick}/>
       <div className="flex flex-col flex-1">
-        <Navbar />
+        <Navbar onLogoClick={logoclicked}/>
         <div className="items-container">
           {loading ? (
-            <p>
-              Loading items...
-              <Image
-                src="/assets/loading.gif"
-                alt="Loading spinner"
-                width={40}
-                height={40}
-                unoptimized
-              />
-            </p>
+            <p className="flex items-center gap-2 text-lg text-gray-600">
+            Loading items...
+            <Image
+              src="/assets/loading.gif"
+              alt="Loading spinner"
+              width={40}
+              height={40}
+              unoptimized
+            />
+          </p>
           ) : (
-            <Items items={items} />
+            <Items items={filteredItems} />
           )}
         </div>
       </div>

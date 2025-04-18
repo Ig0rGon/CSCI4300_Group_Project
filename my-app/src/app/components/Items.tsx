@@ -47,7 +47,7 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
     <div className={styles.itemsContainer}>
       {items.map((item) => (
         //This Div holds the image and the item details 
-        <div onClick={() => handleClick(item._id, item.name, item.category)} key={item._id} className={styles.itemCard}>
+        <div onClick={() => handleClick(item._id, item.name, item.category)} key={item._id} className={styles.itemCard} style={{ cursor: "pointer" }}>
           <Image
             src={item.imageUrl}
             alt={item.name}

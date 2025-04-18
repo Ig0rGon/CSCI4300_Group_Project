@@ -3,7 +3,11 @@ import React from "react";
 import "../styles/Sidebar.css";
 import { Home, Ticket, Book, ShoppingBag, Shirt, Monitor, PawPrint, CircleEllipsis } from "lucide-react";
 
-const Sidebar = () => {
+interface SidebarProps {
+  onCategoryClick: (category: string) => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ onCategoryClick }) => {
   const categories = [
     { name: "Tickets", icon: <Ticket /> },
     { name: "Household Items", icon: <Home /> },
@@ -32,7 +36,7 @@ const Sidebar = () => {
         <ul className="sidebar-categories-list">
           {categories.map((cat, idx) => (
             <li key={idx} className="sidebar-category-item">
-              <button className="sidebar-category-button">
+              <button className="sidebar-category-button" onClick={() => onCategoryClick(cat.name)}>
                 <span className="sidebar-category-icon">{cat.icon}</span>
               </button>
               <span className="sidebar-category-name">{cat.name}</span>
