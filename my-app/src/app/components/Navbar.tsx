@@ -12,16 +12,16 @@ interface navBar {
 
 const Navbar: React.FC<navBar> = ({onLogoClick}) => {
   const router = useRouter();
-  const [isLoggedin, setIsLoggedin] = useState(false); // use state!
-
 
   const handlePostItemClick = () => {
     router.push("/post-item"); // Navigate to the Post Item page
   };
 
   const handleSignUpClick = () => {
-    setIsLoggedin((prev) => !prev); // toggle login state
+    router.push("/sign-up");
   };
+  
+  const isLoggedin = false;
 
   return (
     <nav className="Navbar">
