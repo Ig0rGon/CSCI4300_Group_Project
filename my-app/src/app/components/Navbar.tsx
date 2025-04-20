@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"; // Use next/navigation for client-s
 import Image from "next/image";
 import "../styles/Navbar.css";
 import { User } from "lucide-react";
+import { useSession, signOut } from "next-auth/react";
 
 interface navBar {
   onLogoClick: () => void;
@@ -12,6 +13,8 @@ interface navBar {
 
 const Navbar: React.FC<navBar> = ({onLogoClick}) => {
   const router = useRouter();
+  const { data: session, status } = useSession(); // 👈 check session
+  const isLoggedIn = !!session; // 👈 true if session exists
 
   const handlePostItemClick = () => {
     router.push("/post-item"); // Navigate to the Post Item page
@@ -25,7 +28,10 @@ const Navbar: React.FC<navBar> = ({onLogoClick}) => {
     window.location.href = "/login";
   }
 
-  const isLoggedin = false;
+  const handleSignOutClick = () => {
+    signOut({ callbackUrl: "/" }); // Redirect to homepage after signing out
+  }
+
 
   return (
     <nav className="Navbar">
@@ -41,12 +47,12 @@ const Navbar: React.FC<navBar> = ({onLogoClick}) => {
         </button>
       </div>
       <div className="navbar-buttons">
-        {isLoggedin ? ( //If logged in render these buttons
+        {isLoggedIn ? ( //If logged in render these buttons
           <>
             <button className="post-item-button" onClick={handlePostItemClick}>
               Post Item
             </button>
-            <button className="sign-out-button" onClick={handleSignUpClick}>Sign Out</button>
+            <button className="sign-out-button" onClick={handleSignOutClick}>Sign Out</button>
             <button className="account-button">
               <User className="account-icon" />
             </button>
