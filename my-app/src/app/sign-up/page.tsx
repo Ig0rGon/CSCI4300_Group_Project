@@ -1,10 +1,11 @@
 "use client";
+import SignUp from "../components/SignUp";
 
 export default function signup() {
 
   return (
    <div>
-    signup page
+    <SignUp />
    </div>
   );
 }

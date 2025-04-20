@@ -18,9 +18,13 @@ const Navbar: React.FC<navBar> = ({onLogoClick}) => {
   };
 
   const handleSignUpClick = () => {
-    router.push("/sign-up");
+    window.location.href = "/sign-up";
   };
-  
+
+  const handleLoginClick = () => {
+    window.location.href = "/login";
+  }
+
   const isLoggedin = false;
 
   return (
@@ -49,7 +53,8 @@ const Navbar: React.FC<navBar> = ({onLogoClick}) => {
           </>
         ) : ( //If logged out render these buttons
           <>
-            <button className="sign-out-button" onClick={handleSignUpClick}>Sign In</button>
+            <button className="sign-out-button" onClick={handleSignUpClick}>Sign Up</button>
+            <button className="post-item-button" onClick={handleLoginClick}>Login</button>
           </>
         )}
       </div>
