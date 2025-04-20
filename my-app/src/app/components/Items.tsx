@@ -1,10 +1,11 @@
 "use client"
 
-import React from 'react';
+import React, { use } from 'react';
 import Image from 'next/image';
 import styles from '../styles/Items.module.css';
 import "../styles/Items.css"
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 
 //Interface for each item
@@ -24,10 +25,6 @@ interface ItemsProps {
   items: Item[];
 }
 
-//arrow function to handle whne Items is clicked
-const handleClick = (id: string, name: string, category: string) => {
-    alert(`Item ID: ${id}, Name: ${name}, Category: ${category}` + " clicked");
-}
 
 //takes all the items and prints out in a neat card
 // Currently only shows image, price, name, and location
@@ -35,6 +32,7 @@ const handleClick = (id: string, name: string, category: string) => {
 const Items: React.FC<ItemsProps> = ({ items }) => {
 
   const [mounted, setMounted] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setMounted(true);
@@ -42,6 +40,12 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
 
   if (!mounted) return null; // or <p>Loading...</p>
 
+  const handleClick = (id: string, name: string, category: string) => {
+    alert(`Item ID: ${id}, Name: ${name}, Category: ${category}` + " clicked");
+    router.push(`/items/${id}`);
+}
+
+  
 
   return (
     <div className={styles.itemsContainer}>

@@ -44,7 +44,6 @@ const PostItemPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Redirect to the homepage with query parameters
-    alert(formData.category)
 
     const response = await fetch("/api/items", {
       method: "POST",
@@ -53,7 +52,6 @@ const PostItemPage = () => {
     });
   
     const result = await response.json();
-    alert(result.message); // "Item posted successfully!"
 
     //Resets the data here
     setFormData({

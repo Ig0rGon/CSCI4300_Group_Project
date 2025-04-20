@@ -1,11 +1,16 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+
+
 
 export default function SignupPage() {
 
   const loginClicked = () => {
     window.location.href = "/login"; //This hard resets the page and fixes styling errors
   };
+
+  const router = useRouter();
 
   const [formData, setFormData] = useState({
     username: "",
@@ -30,6 +35,13 @@ export default function SignupPage() {
     });
   
     const result = await response.json();
+
+
+    if (!response.ok) {
+      alert("Error: " + result.message);
+      return;
+    }
+
     alert(result.message); // "Item posted successfully!"
 
     //Resets the data here
@@ -39,6 +51,7 @@ export default function SignupPage() {
       password: ""
     });
 
+    router.push("/login");
   };
 
 
