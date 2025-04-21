@@ -41,8 +41,7 @@ const Items: React.FC<ItemsProps> = ({ items }) => {
   if (!mounted) return null; // or <p>Loading...</p>
 
   const handleClick = (id: string, name: string, category: string) => {
-    alert(`Item ID: ${id}, Name: ${name}, Category: ${category}` + " clicked");
-    router.push(`/items/${id}`);
+    window.location.href = `/items/${id}`; //This hard resets the page and fixes styling errors
 }
 
   
