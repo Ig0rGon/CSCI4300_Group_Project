@@ -1,49 +1,36 @@
 "use client";
 
 import React from "react";
-import Navbar from "../app/components/Navbar";
-import Sidebar from "../app/components/Sidebar";
-import Items from "./components/Items";
-import './styles/Items.css'
+// import { useRouter } from "next/navigation";
+import Image from "next/image"
+import "./styles/Home.css";
 
+export default function Home() {
+  // const router = useRouter();
 
-// Sample Items we will get rid of this soon once I start pulling from data base
-const sampleItems = [
-  {
-    _id: "1",
-    name: "BuzzLightYear",
-    price: 49.99,
-    location: "Atlanta, GA",
-    lat: 33.93904,
-    lon: -83.37061,
-    imageUrl:
-      "https://media.gettyimages.com/id/458540731/photo/waving-buzz-lightyear-toy.jpg?s=612x612&w=gi&k=20&c=TJ7KgEXd1_kNT9uwA3cCHvh9vZfoD-c7HpHrORvvn-I=",
-  },
-  {
-    _id: "2",
-    name: "BuzzLightYear 2.0",
-    price: 89.99,
-    location: "Athens, GA",
-    lat: 33.93904,
-    lon: -83.37061,
-    imageUrl:
-      "https://media.gettyimages.com/id/458540731/photo/waving-buzz-lightyear-toy.jpg?s=612x612&w=gi&k=20&c=TJ7KgEXd1_kNT9uwA3cCHvh9vZfoD-c7HpHrORvvn-I=",
-  },
-];
+  const handleEnterSite = () => {
+    // router.push("/main"); // Navigate to the original page.tsx (now at /main)
+    window.location.href = "/main"; //This hard resets the page and fixes styling errors
+  };
 
 //Structured to add items in the correct area
 const HomePage = () => {
   return (
-    <div className="flex h-screen">
-      <Sidebar />
-      <div className="flex flex-col flex-1">
-        <Navbar />
-        <div className="items-container">
-          <Items items={sampleItems}/>
-        </div>
-      </div>
+    <div className="home-container">
+      {/* <button className="enter-button">
+        Sign In
+      </button> */}
+      <Image src="/assets/logo.png" alt="Bulldog Market Logo" className="logo" width={200} height={200} />
+      <h1>Welcome to Bulldog Market</h1>
+      <p>
+        Your one-stop shop for all your needs! We aim to be the ultimate online marketplace
+        for all UGA students and the Athens community. Whether you're looking to buy, sell, or explore,
+        out platform offers a seamless and secure experience for all your needs. 
+        Join us today and start shopping!
+      </p>
+      <button onClick={handleEnterSite} className="enter-button">
+        Begin Shopping!
+      </button>
     </div>
   );
-};
-
-export default HomePage;
+}

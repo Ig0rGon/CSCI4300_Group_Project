@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgb(255, 228, 225); /* Light pink background */
+  background-color: rgb(245, 192, 190); /* Light pink background */
   min-height: 100vh; /* Full viewport height */
   padding: 2rem;
 }

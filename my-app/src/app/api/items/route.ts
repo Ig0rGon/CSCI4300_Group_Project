@@ -4,14 +4,15 @@ import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
-    // Handle GET requests
-
+    await connectMongoDB();
+    const items = await Item.find();
+    return NextResponse.json({ items }, {status: 200}) //IDK what the status code should be
 }
 
 export async function POST(request: NextRequest) {
-    const { name, owner, description, price, longitude, latitude } = await request.json();
+    const { id, name, price, location, lat, lon, imageUrl, category } = await request.json(); 
     await connectMongoDB();
-    await Item.create({ name, owner, description, price, longitude, latitude });
-    return NextResponse.json({ message: "Item added succesfully" }, {status: 200});
+    await Item.create({ id, name, price, location, lat, lon, imageUrl, category }); 
+    return NextResponse.json({ message: "item added succesfully" }, { status: 201 });
 }
 
