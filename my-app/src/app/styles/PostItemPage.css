@@ -94,3 +94,25 @@
 .add-image-button:hover {
   background-color: #f78fb3; /* Darker pink on hover */
 }
+
+.uga-button {
+  background-color: #BA0C2F; /* UGA red */
+  color: #FFFFFF; /* White text */
+  border: 2px solid #000000; /* Black border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for a button-like appearance */
+  font-size: 16px; /* Font size */
+  font-weight: bold; /* Bold text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.uga-button:hover {
+  background-color: #A50B2D; /* Slightly darker red on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.uga-button:active {
+  background-color: #800020; /* Even darker red when clicked */
+  transform: scale(0.95); /* Slight shrink effect */
+}
