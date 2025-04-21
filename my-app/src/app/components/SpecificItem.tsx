@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react"; // 👈 import auth
 
 interface Item {
   _id: string;
@@ -14,6 +15,9 @@ interface Item {
 }
 
 export default function SpecificItem({ id }: { id: string }) {
+  const { data: session, status } = useSession(); // 👈 get session
+  const isLoggedIn = !!session;
+
   const [item, setItem] = useState<Item | null>(null);
   const router = useRouter();
 
@@ -84,21 +88,22 @@ export default function SpecificItem({ id }: { id: string }) {
       <p className="text-gray-600">Location: {item.location}</p>
       <p className="text-xl font-semibold">${item.price}</p>
       <p className="text-gray-500">Category: {item.category}</p>
-
-      <div className="mt-6 flex gap-4">
-        <button
-          onClick={handleEdit}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-        >
-          Edit
-        </button>
-        <button
-          onClick={handleDelete}
-          className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
-        >
-          Delete
-        </button>
-      </div>
+      {isLoggedIn && (
+        <div className="mt-6 flex gap-4">
+          <button
+            onClick={handleEdit}
+            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+          >
+            Edit
+          </button>
+          <button
+            onClick={handleDelete}
+            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+          >
+            Delete
+          </button>
+        </div>
+      )}
     </div>
   );
 }
