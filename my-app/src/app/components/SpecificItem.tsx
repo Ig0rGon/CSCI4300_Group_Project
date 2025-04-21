@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import MapWithDirections from "./MapWithDirections"; // Import the MapWithDirections component
 
 interface Item {
   _id: string;
@@ -14,8 +15,10 @@ interface Item {
 
 export default function SpecificItem({ id }: { id: string }) {
   const [item, setItem] = useState<Item | null>(null);
+  const [buyerLocation, setBuyerLocation] = useState<[number, number] | null>(null);
 
   useEffect(() => {
+    // Fetch the item details
     const fetchItem = async () => {
       try {
         const res = await fetch(`/api/items/${id}`);
@@ -33,6 +36,21 @@ export default function SpecificItem({ id }: { id: string }) {
     };
   
     fetchItem();
+
+    // Fetch the buyer's current location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setBuyerLocation([position.coords.longitude, position.coords.latitude]);
+        },
+        (error) => {
+          console.error("Error fetching buyer's location:", error);
+          alert("Unable to retrieve your location. Please enable location services.");
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
   }, [id]);
 
   if (!item) return <p className="text-center mt-10">Loading item...</p>;
@@ -44,6 +62,18 @@ export default function SpecificItem({ id }: { id: string }) {
       <p className="text-gray-600">Location: {item.location}</p>
       <p className="text-xl font-semibold">${item.price}</p>
       <p className="text-gray-500">Category: {item.category}</p>
+
+      <div className="mt-6">
+        <h2 className="text-2xl font-bold mb-4">Directions to Seller</h2>
+        {buyerLocation ? (
+          <MapWithDirections
+            sellerLocation={[item.lon, item.lat]}
+            buyerLocation={buyerLocation} // Pass buyer's location as a prop
+          />
+        ) : (
+          <p>Loading your location...</p>
+        )}
+      </div>
     </div>
   );
 }
