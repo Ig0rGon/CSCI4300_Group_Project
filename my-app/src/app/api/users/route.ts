@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return NextResponse.json({ message: "User already exists" }, { status: 400 });
+      return NextResponse.json({ message: "Email already in use" }, { status: 400 });
     }
 
     const hashedPassword = await bcrypt.hash(password, 5);
