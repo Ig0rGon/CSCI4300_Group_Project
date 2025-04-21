@@ -34,7 +34,10 @@ export default function EditItem({ id }: { id: string }) {
   ) => {
     if (!formData) return;
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: name === "price" ? parseFloat(value) : value });
+    setFormData({
+      ...formData,
+      [name]: name === "price" ? parseFloat(value) : value,
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -55,11 +58,19 @@ export default function EditItem({ id }: { id: string }) {
     }
   };
 
-  if (loading || !formData) return <p className="text-center mt-10">Loading form...</p>;
+  if (loading || !formData)
+    return <p className="text-center mt-10">Loading form...</p>;
 
   return (
     <div className="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-xl shadow-md">
       <h1 className="text-2xl font-bold text-red-700 mb-6">Edit Item</h1>
+      <button
+        onClick={() => router.push("/main")}
+        type="button"
+        className="mb-4 text-red-700 underline hover:text-red-900"
+      >
+        ← Back to Marketplace
+      </button>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"

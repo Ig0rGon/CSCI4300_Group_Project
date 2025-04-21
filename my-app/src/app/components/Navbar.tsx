@@ -11,7 +11,7 @@ interface navBar {
   onLogoClick: () => void;
 }
 
-const Navbar: React.FC<navBar> = ({onLogoClick}) => {
+const Navbar: React.FC<navBar> = ({ onLogoClick }) => {
   const router = useRouter();
   const { data: session, status } = useSession(); // 👈 check session
   const isLoggedIn = !!session; // 👈 true if session exists
@@ -26,12 +26,11 @@ const Navbar: React.FC<navBar> = ({onLogoClick}) => {
 
   const handleLoginClick = () => {
     window.location.href = "/login";
-  }
+  };
 
   const handleSignOutClick = () => {
     signOut({ callbackUrl: "/" }); // Redirect to homepage after signing out
-  }
-
+  };
 
   return (
     <nav className="Navbar">
@@ -46,21 +45,35 @@ const Navbar: React.FC<navBar> = ({onLogoClick}) => {
           />
         </button>
       </div>
+      {isLoggedIn && session?.user?.name && (
+        <div className="ml-4">
+          <p className="text-md text-red-700 font-semibold">
+            Welcome, <span className="text-black">{session.user.name}</span>
+          </p>
+        </div>
+      )}
       <div className="navbar-buttons">
         {isLoggedIn ? ( //If logged in render these buttons
           <>
             <button className="post-item-button" onClick={handlePostItemClick}>
               Post Item
             </button>
-            <button className="sign-out-button" onClick={handleSignOutClick}>Sign Out</button>
+            <button className="sign-out-button" onClick={handleSignOutClick}>
+              Sign Out
+            </button>
             <button className="account-button">
               <User className="account-icon" />
             </button>
           </>
-        ) : ( //If logged out render these buttons
+        ) : (
+          //If logged out render these buttons
           <>
-            <button className="sign-out-button" onClick={handleSignUpClick}>Sign Up</button>
-            <button className="post-item-button" onClick={handleLoginClick}>Login</button>
+            <button className="sign-out-button" onClick={handleSignUpClick}>
+              Sign Up
+            </button>
+            <button className="post-item-button" onClick={handleLoginClick}>
+              Login
+            </button>
           </>
         )}
       </div>

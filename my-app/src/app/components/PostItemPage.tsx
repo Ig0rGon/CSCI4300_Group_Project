@@ -12,15 +12,17 @@ const PostItemPage = () => {
     name: "",
     price: "",
     location: "",
-    lat: 0.00, //arbitrary lat and lon later get from user location or smth
-    lon: 0.00,
+    lat: 0.0, //arbitrary lat and lon later get from user location or smth
+    lon: 0.0,
     imageUrl: "",
-    category: "" //ADD BACK
+    category: "", //ADD BACK
   });
 
   // Handle input changes for text fields
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -50,7 +52,7 @@ const PostItemPage = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     });
-  
+
     const result = await response.json();
 
     //Resets the data here
@@ -61,12 +63,11 @@ const PostItemPage = () => {
       lat: 0.0,
       lon: 0.0,
       imageUrl: "",
-      category: ""
+      category: "",
     });
 
-
     //Goes back to root ADD this later so it goes back to home page
-    router.push("/main"); 
+    router.push("/main");
   };
 
   return (
@@ -78,6 +79,13 @@ const PostItemPage = () => {
           alt="Bulldog Market Logo"
           className="post-item-logo"
         />
+        <button
+          type="button"
+          onClick={() => router.push("/main")}
+          className="text-red-700 underline mb-4 hover:text-red-900 self-start"
+        >
+          Back to Marketplace
+        </button>
         <form onSubmit={handleSubmit} className="post-item-form">
           <input
             type="text"
@@ -118,7 +126,7 @@ const PostItemPage = () => {
               <option value="Other">Other</option>
             </select>
           </div>
-          
+
           <input
             type="text"
             name="location"
