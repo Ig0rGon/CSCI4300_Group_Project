@@ -1,7 +1,9 @@
-import Item from "@/models/itemsSchema"
 import connectMongoDB from "../../../../config/mongodb";
+import Item from "@/app/models/itemSchema";
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
+//handles endpoints for our set of items (in /api/items/route.ts)
+
 
 export async function GET(request: NextRequest) {
     await connectMongoDB();
@@ -15,4 +17,3 @@ export async function POST(request: NextRequest) {
     await Item.create({ id, name, price, location, lat, lon, imageUrl, category }); 
     return NextResponse.json({ message: "item added succesfully" }, { status: 201 });
 }
-

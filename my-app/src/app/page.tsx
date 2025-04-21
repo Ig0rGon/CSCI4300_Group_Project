@@ -13,8 +13,6 @@ export default function Home() {
     window.location.href = "/main"; //This hard resets the page and fixes styling errors
   };
 
-//Structured to add items in the correct area
-const HomePage = () => {
   return (
     <div className="home-container">
       {/* <button className="enter-button">

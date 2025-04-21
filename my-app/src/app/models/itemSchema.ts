@@ -13,23 +13,21 @@ interface IItem extends Document {
   const itemSchema = new Schema<IItem>({
     name: {  
         type: String,
-    },
-    owner: {
-        type: String,
         required: true,
-    },
-    description: {
-        type: String,
     },
     price: {
         type: Number,
         required: true,
     },
-    longitude: {
+    location: {
+        type: String,
+        required: true,
+    },
+    lat: {
         type: Number,
         required: true,
     },
-    latitude: {
+    lon: {
         type: Number,
         required: true,
     },
