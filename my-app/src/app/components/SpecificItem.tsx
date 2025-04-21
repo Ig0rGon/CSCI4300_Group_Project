@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react"; // 👈 import auth
+import MapWithDirections from "./MapWithDirections"; // Import the MapWithDirections component
 
 interface Item {
   _id: string;
@@ -20,8 +21,10 @@ export default function SpecificItem({ id }: { id: string }) {
 
   const [item, setItem] = useState<Item | null>(null);
   const router = useRouter();
+  const [buyerLocation, setBuyerLocation] = useState<[number, number] | null>(null);
 
   useEffect(() => {
+    // Fetch the item details
     const fetchItem = async () => {
       try {
         const res = await fetch(`/api/items/${id}`);
@@ -39,6 +42,21 @@ export default function SpecificItem({ id }: { id: string }) {
     };
 
     fetchItem();
+
+    // Fetch the buyer's current location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setBuyerLocation([position.coords.longitude, position.coords.latitude]);
+        },
+        (error) => {
+          console.error("Error fetching buyer's location:", error);
+          alert("Unable to retrieve your location. Please enable location services.");
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
   }, [id]);
 
   const handleDelete = async () => {
@@ -104,6 +122,18 @@ export default function SpecificItem({ id }: { id: string }) {
           </button>
         </div>
       )}
+
+      <div className="mt-6">
+        <h2 className="text-2xl font-bold mb-4">Directions to Seller</h2>
+        {buyerLocation ? (
+          <MapWithDirections
+            sellerLocation={[item.lon, item.lat]}
+            buyerLocation={buyerLocation} // Pass buyer's location as a prop
+          />
+        ) : (
+          <p>Loading your location...</p>
+        )}
+      </div>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import "../styles/PostItemPage.css";
 
 const PostItemPage = () => {
   const router = useRouter();
+  const fileInputRef = useRef<HTMLInputElement | null>(null); 
   // const fileInputRef = useRef<HTMLInputElement | null>(null); // Reference to the hidden file input
   const [formData, setFormData] = useState({
     // image: null as File | null, // Store the uploaded file
@@ -17,6 +18,8 @@ const PostItemPage = () => {
     imageUrl: "",
     category: "", //ADD BACK
   });
+
+  const [useManualLocation, setUseManualLocation] = useState(false); // Toggle for manual location input
 
   // Handle input changes for text fields
   const handleChange = (
@@ -41,6 +44,67 @@ const PostItemPage = () => {
   //     fileInputRef.current.click(); // Programmatically click the hidden file input
   //   }
   // };
+
+
+  // Function to get user's current location
+  const handleGetLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setFormData({
+            ...formData,
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          });
+          alert(
+            `Location obtained: Lat ${position.coords.latitude}, Lon ${position.coords.longitude}`
+          );
+        },
+        (error) => {
+          console.error("Error obtaining location:", error);
+          alert("Unable to retrieve your location. Please enable location services.");
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  };
+
+  // Function to fetch latitude and longitude from a manual location input using Mapbox Geocoding API
+  const handleFetchLatLon = async () => {
+    if (!formData.location) {
+      alert("Please enter a location.");
+      return;
+    }
+
+    try {
+      const mapboxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN; // Replace with your Mapbox access token
+      if (!mapboxAccessToken) {
+        throw new Error('Mapbox access token is not defined in environment variables.');
+      }
+      const response = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+          formData.location
+        )}.json?access_token=${mapboxAccessToken}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch location data.");
+      }
+
+      const data = await response.json();
+      if (data.features && data.features.length > 0) {
+        const [lon, lat] = data.features[0].center; // Extract longitude and latitude
+        setFormData({ ...formData, lat, lon });
+        alert(`Location set: Lat ${lat}, Lon ${lon}`);
+      } else {
+        alert("No results found for the entered location.");
+      }
+    } catch (error) {
+      console.error("Error fetching location data:", error);
+      alert("Failed to fetch location data. Please try again.");
+    }
+  };
 
   // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
@@ -130,11 +194,49 @@ const PostItemPage = () => {
           <input
             type="text"
             name="location"
-            placeholder="location"
+            placeholder="Location (City/Address)"
             value={formData.location}
             onChange={handleChange}
             required
           />
+
+          {/* Toggle between manual location and current location */}
+          <div className="location-options">
+            <label>
+              <input
+                type="checkbox"
+                checked={useManualLocation}
+                onChange={() => setUseManualLocation(!useManualLocation)}
+              />
+              Use Manual Location
+            </label>
+          </div>
+
+          {useManualLocation ? (
+            <button
+              type="button"
+              className="fetch-location-button uga-button"
+              onClick={handleFetchLatLon}
+            >
+              Fetch Latitude and Longitude
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="get-location-button uga-button"
+              onClick={handleGetLocation}
+            >
+              Get My Current Location
+            </button>
+          )}
+
+          {/* Display user's latitude and longitude */}
+          {formData.lat !== 0.0 && formData.lon !== 0.0 && (
+            <p>
+              Latitude: {formData.lat}, Longitude: {formData.lon}
+            </p>
+          )}
+
           <input
             type="text"
             name="imageUrl"
