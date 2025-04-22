@@ -50,7 +50,10 @@ export default function SpecificItem({ id }: { id: string }) {
           setBuyerLocation([position.coords.longitude, position.coords.latitude]);
         },
         (error) => {
-          console.error("Error fetching buyer's location:", error);
+          console.error(
+            "Error fetching buyer's location:",
+            `Code: ${error.code}, Message: ${error.message}`
+          );
           alert("Unable to retrieve your location. Please enable location services.");
         }
       );
@@ -103,8 +106,8 @@ export default function SpecificItem({ id }: { id: string }) {
         className="w-full rounded mb-4"
       />
       <h1 className="text-3xl font-bold text-red-700 mb-2">{item.name}</h1>
-      <p className="text-gray-600">Location: {item.location}</p>
       <p className="text-xl font-semibold">${item.price}</p>
+      <p className="text-gray-600">Location: {item.location}</p>
       <p className="text-gray-500">Category: {item.category}</p>
       {isLoggedIn && (
         <div className="mt-6 flex gap-4">
