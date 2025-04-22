@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+CSCI4300 - Web Programming
 
-## Getting Started
+Final Project
 
-First, run the development server:
+GROUP NAME: Pack-a-punch
+Class section: 8:00AM
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Member names:
+Leader: Igor Rodrigues Goncalves
+Miro Board: Jordan Delp
+Communication: Theodore Willingham
+Github Captain: Daniel Matthew
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Project Name: Bulldog Market
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Description:
+Bulldog Market is designed to streamline transactions between University of Georgia (UGA) students and individuals in the greater Athens area. Users can browse all available items, with the ability to post or delete listings only upon signing in. The platform incorporates authentication to ensure a safer and more reliable environment for both buyers and sellers. Bulldog Market also features item categorization and GPS-based location tracking to display the proximity of items. Whether purchasing a used textbook, selling a dorm fridge, or trading event tickets, Bulldog Market simplifies and secures campus-centric commerce.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Individual Accomplishments:
 
-## Learn More
+Igor Rodrigues Goncalves - Group Leader
+- Conceptualized and drafted the basic project design in Figma based on easy movement and intuitive navigation, focusing on a clean user interface that prioritizes ease of use and quick access to core features like browsing, posting, and messaging.
+- Developed the frontend of the application using React, translating the Figma design into responsive, component-based code with dynamic routing, state management, and seamless user interactions for posting, and browsing.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Theodore Willingham - Communications
+- Successfully implemented user authentication and authorization using JWT and Next.js OAuth.
+- Designed and deployed backend API endpoints with Mongoose schemas to support item creation, retrieval, updating, and deletion in MongoDB.
+- Built a functional category-based item organizer to streamline content browsing.
+- Developed a reusable Item component along with a foundational layout for viewing individual item details.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+Jordan Delp - Miro Board
+- Successfully integrated the Mapbox Directions API into the project, enabling real-time driving directions between the buyer’s and seller’s locations, improving user navigation and enhancing the overall functionality of the marketplace.
+- Tested the Directions API to ensure accurate routing, clear step-by-step instructions, and smooth interaction with the map interface, providing users with a seamless experience when viewing and following directions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Daniel Matthew - Github Captain
+- Established a shared code style guide to maintain consistency across onboarding and collaboration smoother for the project and future implementation.
+- Partially documented components and project structure using clear comments and README files to make onboarding and collaboration smoother for future developers.
