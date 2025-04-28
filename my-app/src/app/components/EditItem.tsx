@@ -85,7 +85,7 @@ export default function EditItem({ id }: { id: string }) {
           type="number"
           name="price"
           placeholder="Price"
-          value={formData.price}
+          value={formData.price ?? ""}
           onChange={handleChange}
           className="w-full px-4 py-2 border border-gray-300 rounded"
           min="0"

@@ -6,5 +6,5 @@ export default async function EditItemPage({
   params: { id: string };
 }) {
   const { id } = await params;
-  return <EditItem id={params.id} />;
+  return <EditItem id={id} />;
 }
