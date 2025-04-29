@@ -124,6 +124,7 @@ export default function EditItem({ id }: { id: string }) {
           <option value="Electronics">Electronics</option>
           <option value="Pet Supplies">Pet Supplies</option>
           <option value="Tickets">Tickets</option>
+          <option value="Other">Other</option>
         </select>
 
         <button
